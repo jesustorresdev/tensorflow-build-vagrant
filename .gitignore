@@ -1,0 +1,11 @@
+# Vagrant
+/.vagrant*/
+/tensorflow_pkg/
+
+# cuDNN
+cudnn*.tgz
+
+# Vim
+*.swp*
+*.swo*
+

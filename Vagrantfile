@@ -12,7 +12,7 @@ Vagrant.configure(2) do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "ubuntu/vivid64"
+  config.vm.box = "bento/ubuntu-16.04"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -44,11 +44,18 @@ Vagrant.configure(2) do |config|
   # Example for VirtualBox:
   #
   config.vm.provider "virtualbox" do |vb|
+    vb.name = "tensorflow-build"
+    vb.linked_clone = true
+
   #   # Display the VirtualBox GUI when booting the machine
   #   vb.gui = true
   #
     # Customize the amount of memory on the VM:
     vb.memory = "3072"
+
+    ### Fix a bug enabling network interfaces
+    ### https://github.com/mitchellh/vagrant/issues/6871
+    vb.customize ["modifyvm", :id, "--cableconnected1", "on"]
   end
   #
   # View the documentation for the provider you are using for more
@@ -64,5 +71,5 @@ Vagrant.configure(2) do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
-  config.vm.provision "shell", path: "build-tensorflow.sh", privileged: false
+  config.vm.provision "shell", path: "bootstrap.sh", privileged: false
 end

@@ -33,8 +33,8 @@ machine using the following Vagrant commands:
 ## Software provisioned
 
 The created virtual machines must be provisioned with all the software that we
-need. For that we use [build-tensorflow.sh](build-tensorflow.sh) Bash script.
-It will install all dependencies and start the build process as is described by
+need. For that we use [bootstrap.sh](bootstrap.sh) Bash script. It will install
+all dependencies and start the build process as is described by
 [Tensorflow documentation](https://www.tensorflow.org/versions/master/get_started/os_setup.html).
 
 # Copyright and license

@@ -34,10 +34,13 @@ machine using the following Vagrant commands:
 
 The created virtual machines must be provisioned with all the software that we
 need. For that we use [bootstrap.sh](bootstrap.sh) Bash script. It will install
-all dependencies and start the build process as is described by
+all dependencies and then it will run [build-tensorflow.sh](build-tensorflow.sh)
+to start the build process as is described by
 [Tensorflow documentation](https://www.tensorflow.org/versions/master/get_started/os_setup.html).
+There is where you have to see if you want to the change the build setup; e.g.
+CUDA version, CPU type or cuDNN, version.
 
 # Copyright and license
 
-Copyright (c) 2016, Jesús Torres &lt;<jmtorres@ull.es>&gt;. This work is
+Copyright (c) 2016-2017, Jesús Torres &lt;<jmtorres@ull.es>&gt;. This work is
 licensed under a [Creative Commons Public Domain Dedication 1.0 License](https://creativecommons.org/publicdomain/zero/1.0/).
